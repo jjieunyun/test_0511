@@ -2,7 +2,7 @@
     <div>
         <h1>메인페이지</h1>
         <img v-if="fnGetUser.photoURL" :src="fnGetUser.photoURL" alt="profile IMG">
-        <div v-else class="logo"><h6>{{fnGetUserName[0]}}</h6></div>
+        <div v-else class="logo"><h6>{{fnGetUserfirstChar}}</h6></div>
         <h3>{{fnGetUserName[0]}}</h3>
         <p>{{fnGetUser.email}}</p>
     </div>
@@ -23,7 +23,13 @@ export default {
         fnGetUserName() {
             let email = this.getEmail
             let splitedEmail = email.split('@');
-            return splitedEmail
+            return  splitedEmail
+        },
+        fnGetUserfirstChar() {
+            let email = this.getEmail
+            let splitedEmail = email.split('@');
+            let string = splitedEmail.toString()
+            return  string.charAt(0)
         },
         
     }
@@ -53,7 +59,7 @@ html {
     transform: translateY(-50%);
     margin: 0;
     padding: 0;
-    font-size:2em;
+    font-size:3.5em;
 
 }
 
